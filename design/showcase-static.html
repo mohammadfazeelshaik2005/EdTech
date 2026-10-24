@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PathSync AI — Permanent Visual Design System & Component Library</title>
+  <meta name="description" content="Official permanent visual design system and reusable component architecture for PathSync AI, inspired by modern education and SaaS standards.">
+  
+  <!-- Design System Core CSS -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/showcase.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       TOP SHOWCASE CONTROL BAR
+       ======================================================================== -->
+  <header class="ps-showcase-bar">
+    <div class="ps-showcase-bar-title">
+      <span class="ps-brand-logo-icon" style="width:24px; height:24px; font-size:12px; border-radius:4px;">✦</span>
+      <span>PathSync AI Design System <span class="ps-badge ps-badge--brand ps-badge--pill" style="font-size:10px; padding:2px 8px;">v1.0.0 Permanent</span></span>
+    </div>
+
+    <div class="ps-showcase-tabs" data-ps-tabs>
+      <button class="ps-showcase-tab-btn is-active" data-ps-tab="components-view">Component Library (16)</button>
+      <button class="ps-showcase-tab-btn" data-ps-tab="landing-demo-view">Landing Page Demo</button>
+      <button class="ps-showcase-tab-btn" data-ps-tab="tokens-view">Design Tokens & Matrix</button>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:8px;">
+      <button class="ps-btn ps-btn--sm ps-btn--light ps-btn--pill" data-ps-modal-target="#demoModal">
+        <svg class="ps-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2" stroke-width="2"/><path d="M9 3v18M15 3v18" stroke-width="2"/></svg>
+        Modal Demo
+      </button>
+      <button class="ps-btn ps-btn--sm ps-btn--primary ps-btn--pill" onclick="window.PathSyncToast.show('Design System Token Copied! Ready for production.', 'brand')">
+        Test Toast
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       GLOBAL MODAL DIALOG COMPONENT DEMO (<dialog closedby="any">)
+       ======================================================================== -->
+  <dialog id="demoModal" class="ps-modal-dialog" closedby="any" aria-labelledby="demoModalTitle">
+    <div class="ps-modal-container">
+      <div class="ps-modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div class="ps-brand-logo-icon" style="width:32px; height:32px;">✦</div>
+          <h3 id="demoModalTitle" class="ps-modal-title">Explore Academic Pathway</h3>
+        </div>
+        <button class="ps-modal-close-btn" data-ps-modal-close aria-label="Close dialog">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="ps-modal-body">
+        <p style="margin-bottom:16px;">
+          PathSync AI uses personalized intelligence to synthesize academic curricula with industry-validated career milestones.
+        </p>
+        <div class="ps-input-group" style="margin-bottom:14px;">
+          <label class="ps-input-label" for="modalTrackName">Select Preferred Track</label>
+          <div class="ps-input-wrapper">
+            <select id="modalTrackName" class="ps-select">
+              <option>Artificial Intelligence & Machine Learning</option>
+              <option>Full-Stack Cloud Engineering</option>
+              <option>Biotech & Health Informatics</option>
+              <option>Strategic Technology Leadership</option>
+            </select>
+          </div>
+        </div>
+        <div class="ps-input-group">
+          <label class="ps-input-label" for="modalEmail">Student Email Address</label>
+          <div class="ps-input-wrapper">
+            <input type="email" id="modalEmail" class="ps-input" placeholder="student@university.edu">
+          </div>
+          <span class="ps-input-helper">We will send your personalized pathway curriculum report.</span>
+        </div>
+      </div>
+      <div class="ps-modal-footer">
+        <button type="button" class="ps-btn ps-btn--ghost ps-btn--pill" data-ps-modal-close>Cancel</button>
+        <button type="button" class="ps-btn ps-btn--primary ps-btn--pill" onclick="window.PathSyncToast.show('Application Submitted Successfully!', 'success'); document.querySelector('#demoModal').close();">
+          Generate Pathway Report →
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+
+  <!-- ========================================================================
+       TAB VIEW 1: COMPONENT LIBRARY & PLAYGROUND (16 Canonical Components)
+       ======================================================================== -->
+  <main id="components-view" data-ps-tab-panel="components-view" class="ps-container" style="padding-top:40px; padding-bottom:80px;">
+    
+    <!-- Intro Header -->
+    <div class="ps-page-header">
+      <ul class="ps-breadcrumbs">
+        <li><a href="#">PathSync AI</a></li>
+        <li class="ps-breadcrumbs-separator">/</li>
+        <li><a href="#">Design System</a></li>
+        <li class="ps-breadcrumbs-separator">/</li>
+        <li>Canonical Components</li>
+      </ul>
+      <div class="ps-page-header-row">
+        <div>
+          <h1 class="ps-page-header-title">Permanent Visual Component Library</h1>
+          <p class="ps-page-header-subtitle">
+            All 16 core reusable UI components built strictly from the established design tokens and inspired by modern education/SaaS excellence.
+          </p>
+        </div>
+        <div class="ps-page-header-actions">
+          <span class="ps-badge ps-badge--brand ps-badge--pill">
+            <span class="ps-badge-dot"></span> 16 Components Ready
+          </span>
+          <span class="ps-badge ps-badge--mint ps-badge--pill">100% Token Compliant</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1. BUTTON COMPONENT -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:0;">1. Button Component</h3>
+          <span class="ps-section-badge-code">.ps-btn</span>
+        </div>
+        <p class="ps-section-description">Primary, secondary, outline, ghost, dark, and pill buttons with micro-lifts on hover.</p>
+      </div>
+      <div class="ps-preview-box">
+        <div class="ps-preview-row" style="margin-bottom:20px;">
+          <button class="ps-btn ps-btn--primary" onclick="window.PathSyncToast.show('Primary Button Clicked')">Primary Button</button>
+          <button class="ps-btn ps-btn--secondary" onclick="window.PathSyncToast.show('Secondary Button Clicked')">Secondary Button</button>
+          <button class="ps-btn ps-btn--outline" onclick="window.PathSyncToast.show('Outline Button Clicked')">Outline Button</button>
+          <button class="ps-btn ps-btn--ghost" onclick="window.PathSyncToast.show('Ghost Button Clicked')">Ghost Button</button>
+          <button class="ps-btn ps-btn--dark" onclick="window.PathSyncToast.show('Dark Button Clicked')">Dark Navy</button>
+          <button class="ps-btn ps-btn--primary" disabled>Disabled</button>
+        </div>
+        <div class="ps-preview-row" style="margin-bottom:20px;">
+          <span style="font-size:var(--font-size-xs); font-weight:600; color:var(--color-text-tertiary); width:100%;">PILL BUTTONS (REFERENCE STANDARD):</span>
+          <button class="ps-btn ps-btn--primary ps-btn--pill">
+            <span>Explore Programs</span>
+            <svg class="ps-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7" stroke-width="2"/></svg>
+          </button>
+          <button class="ps-btn ps-btn--secondary ps-btn--pill">
+            <svg class="ps-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="5 3 19 12 5 21 5 3" stroke-width="2"/></svg>
+            <span>Watch Campus Tour</span>
+          </button>
+          <button class="ps-btn ps-btn--outline ps-btn--pill">Apply Now →</button>
+        </div>
+        <div class="ps-preview-row">
+          <span style="font-size:var(--font-size-xs); font-weight:600; color:var(--color-text-tertiary); width:100%;">SIZES & LOADING:</span>
+          <button class="ps-btn ps-btn--primary ps-btn--sm ps-btn--pill">Small (sm)</button>
+          <button class="ps-btn ps-btn--primary ps-btn--md ps-btn--pill">Medium (md)</button>
+          <button class="ps-btn ps-btn--primary ps-btn--lg ps-btn--pill">Large (lg)</button>
+          <button class="ps-btn ps-btn--secondary ps-btn--pill" style="pointer-events:none;">
+            <span class="ps-spinner ps-spinner--sm"></span>
+            <span>Processing...</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. INPUT COMPONENT -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:0;">2. Input Component</h3>
+          <span class="ps-section-badge-code">.ps-input, .ps-input-group</span>
+        </div>
+        <p class="ps-section-description">Form inputs with accessible labels, subtle borders, focus glow rings, error states, and icon decorations.</p>
+      </div>
+      <div class="ps-preview-box">
+        <div class="ps-preview-grid-3">
+          <!-- Text Input -->
+          <div class="ps-input-group">
+            <label class="ps-input-label" for="inp1">Student Name</label>
+            <div class="ps-input-wrapper">
+              <input type="text" id="inp1" class="ps-input" placeholder="e.g. Maya Chen">
+            </div>
+            <span class="ps-input-helper">Enter your full legal name.</span>
+          </div>
+
+          <!-- Search Input with Left Icon -->
+          <div class="ps-input-group">
+            <label class="ps-input-label" for="inp2">Search Pathways</label>
+            <div class="ps-input-wrapper ps-input-wrapper--has-left-icon">
+              <span class="ps-input-icon-left">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              </span>
+              <input type="search" id="inp2" class="ps-input ps-input--pill" placeholder="Search AI, robotics, bio...">
+            </div>
+            <span class="ps-input-helper">Over 500+ verified paths available.</span>
+          </div>
+
+          <!-- Select Input -->
+          <div class="ps-input-group">
+            <label class="ps-input-label" for="inp3">Degree Level</label>
+            <div class="ps-input-wrapper">
+              <select id="inp3" class="ps-select">
+                <option>Undergraduate Program</option>
+                <option>Postgraduate Specialization</option>
+                <option>Industry Micro-Credential</option>
+              </select>
+            </div>
+            <span class="ps-input-helper">Select your current academic tier.</span>
+          </div>
+        </div>
+
+        <div class="ps-preview-grid-2" style="margin-top:20px;">
+          <!-- Error State Input -->
+          <div class="ps-input-group ps-input-group--error">
+            <label class="ps-input-label" for="inpError">Institutional Email</label>
+            <div class="ps-input-wrapper">
+              <input type="email" id="inpError" class="ps-input" value="invalid-email-format">
+            </div>
+            <span class="ps-input-helper ps-input-helper--error">Please enter a valid academic email address (.edu / .ac).</span>
+          </div>
+
+          <!-- Textarea -->
+          <div class="ps-input-group">
+            <label class="ps-input-label" for="inpArea">Career Aspirations</label>
+            <div class="ps-input-wrapper">
+              <textarea id="inpArea" class="ps-textarea" placeholder="Tell us about the problems you wish to solve in your career..."></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. CARD COMPONENT -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:0;">3. Card Component</h3>
+          <span class="ps-section-badge-code">.ps-card</span>
+        </div>
+        <p class="ps-section-description">Standard card, interactive lift card, and signature deep forest card from the reference.</p>
+      </div>
+      <div class="ps-preview-grid-3">
+        <!-- Standard Card -->
+        <div class="ps-card">
+          <div class="ps-card-header">
+            <span class="ps-badge ps-badge--brand ps-badge--pill">Standard Card</span>
+            <span style="font-size:var(--font-size-xs); color:var(--color-text-tertiary);">Static</span>
+          </div>
+          <div class="ps-card-body">
+            <h4 style="margin-bottom:8px;">Academic Foundation</h4>
+            <p>Clean white surface, 16px rounded corners, delicate border, and soft shadow for effortless readability.</p>
+          </div>
+          <div class="ps-card-footer">
+            <span style="font-size:var(--font-size-xs); color:var(--color-text-tertiary);">Tokens Compliant</span>
+            <a href="#" class="ps-btn ps-btn--sm ps-btn--outline ps-btn--pill">Details</a>
+          </div>
+        </div>
+
+        <!-- Interactive Card -->
+        <div class="ps-card ps-card--interactive" onclick="window.PathSyncToast.show('Interactive Card Clicked')">
+          <div class="ps-card-header">
+            <span class="ps-badge ps-badge--mint ps-badge--pill">Interactive Hover</span>
+            <span style="font-size:18px; color:var(--color-brand-primary);">↗</span>
+          </div>
+          <div class="ps-card-body">
+            <h4 style="margin-bottom:8px;">Intelligent Career Sync</h4>
+            <p>Hover to reveal a tactile lift (-3px), elevated soft shadow, and brand teal highlight border.</p>
+          </div>
+          <div class="ps-card-footer">
+            <span style="font-weight:600; color:var(--color-brand-primary); font-size:var(--font-size-xs);">Explore Track →</span>
+          </div>
+        </div>
+
+        <!-- Deep Forest Featured Card -->
+        <div class="ps-card ps-card--forest">
+          <div class="ps-card-header">
+            <span class="ps-badge ps-badge--dark ps-badge--pill">Signature Forest</span>
+            <span style="font-size:18px; color:var(--color-accent-mint);">★</span>
+          </div>
+          <div class="ps-card-body">
+            <h4 style="margin-bottom:8px; color:#FFFFFF;">Spotlight Accelerator</h4>
+            <p style="color:#CBD5E1;">Deep botanical teal gradient (`#06392F`) providing rich visual contrast for featured milestones.</p>
+          </div>
+          <div class="ps-card-footer" style="border-top-color:rgba(255,255,255,0.15);">
+            <button class="ps-btn ps-btn--sm ps-btn--light ps-btn--pill">Apply Now →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. BADGE COMPONENT -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:0;">4. Badge Component</h3>
+          <span class="ps-section-badge-code">.ps-badge</span>
+        </div>
+        <p class="ps-section-description">Pill badges for taxonomy tags, status pills, and academic verification indicators.</p>
+      </div>
+      <div class="ps-preview-box">
+        <div class="ps-preview-row">
+          <span class="ps-badge ps-badge--brand ps-badge--pill">
+            <span class="ps-badge-dot"></span> Brand Teal
+          </span>
+          <span class="ps-badge ps-badge--mint ps-badge--pill">
+            <span class="ps-badge-dot"></span> 98% Match
+          </span>
+          <span class="ps-badge ps-badge--neutral ps-badge--pill">
+            <span class="ps-badge-dot"></span> Undergrad
+          </span>
+          <span class="ps-badge ps-badge--warning ps-badge--pill">
+            <span class="ps-badge-dot"></span> Deadline Soon
+          </span>
+          <span class="ps-badge ps-badge--danger ps-badge--pill">
+            <span class="ps-badge-dot"></span> Registration Closed
+          </span>
+          <span class="ps-badge ps-badge--info ps-badge--pill">
+            <span class="ps-badge-dot"></span> AI Verified
+          </span>
+          <span class="ps-badge ps-badge--brand">Square Brand</span>
+          <span class="ps-badge ps-badge--mint">Square Success</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. MODAL COMPONENT -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:0;">5. Modal Component</h3>
+          <span class="ps-section-badge-code">dialog.ps-modal-dialog</span>
+        </div>
+        <p class="ps-section-description">Modern HTML5 dialog with declarative light-dismiss, backdrop blur, and smooth spring pop.</p>
+      </div>
+      <div class="ps-preview-box">
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+          <div>
+            <h4 style="margin-bottom:4px;">Native Dialog with Modern Standards</h4>
+            <p style="font-size:var(--font-size-sm); color:var(--color-text-secondary); margin:0;">
+              Uses <code>&lt;dialog closedby="any"&gt;</code> with full click-outside fallback support.
+            </p>
+          </div>
+          <button class="ps-btn ps-btn--primary ps-btn--pill" data-ps-modal-target="#demoModal">
+            Launch Modal Dialog Demo
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. AVATAR COMPONENT -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:0;">6. Avatar Component</h3>
+          <span class="ps-section-badge-code">.ps-avatar, .ps-avatar-group</span>
+        </div>
+        <p class="ps-section-description">User avatars with status rings, initials fallbacks, and clustered learner stacks.</p>
+      </div>
+      <div class="ps-preview-box">
+        <div class="ps-preview-row" style="margin-bottom:24px;">
+          <span style="font-size:var(--font-size-xs); font-weight:600; color:var(--color-text-tertiary); width:100%;">SIZES & STATUS INDICATORS:</span>
+          <!-- XS -->
+          <div class="ps-avatar ps-avatar--xs">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar XS">
+          </div>
+          <!-- SM -->
+          <div class="ps-avatar ps-avatar--sm">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Avatar SM">
+            <span class="ps-avatar-status ps-avatar-status--online"></span>
+          </div>
+          <!-- MD -->
+          <div class="ps-avatar ps-avatar--md">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Avatar MD">
+            <span class="ps-avatar-status ps-avatar-status--busy"></span>
+          </div>
+          <!-- LG -->
+          <div class="ps-avatar ps-avatar--lg">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="Avatar LG">
+            <span class="ps-avatar-status ps-avatar-status--away"></span>
+          </div>
+          <!-- XL Initials -->
+          <div class="ps-avatar ps-avatar--xl">
+            <span>SC</span>
+          </div>
+        </div>
+
+        <div class="ps-preview-row">
+          <span style="font-size:var(--font-size-xs); font-weight:600; color:var(--color-text-tertiary); width:100%;">AVATAR GROUP (STUDENT COMMUNITY):</span>
+          <div class="ps-avatar-group">
+            <div class="ps-avatar ps-avatar--md">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Learner 1">
+            </div>
+            <div class="ps-avatar ps-avatar--md">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Learner 2">
+            </div>
+            <div class="ps-avatar ps-avatar--md">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Learner 3">
+            </div>
+            <div class="ps-avatar ps-avatar--md">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="Learner 4">
+            </div>
+            <div class="ps-avatar ps-avatar--md ps-avatar--more">
+              <span>+4.8k</span>
+            </div>
+          </div>
+          <span style="font-size:var(--font-size-sm); color:var(--color-text-secondary); margin-left:8px;">
+            Over 25,000+ active students charting pathways worldwide
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. DROPDOWN COMPONENT -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:0;">7. Dropdown Component</h3>
+          <span class="ps-section-badge-code">.ps-dropdown</span>
+        </div>
+        <p class="ps-section-description">Interactive action menu with rounded corners, items, dividers, and outside click dismiss.</p>
+      </div>
+      <div class="ps-preview-box">
+        <div class="ps-preview-row">
+          <div class="ps-dropdown">
+            <button type="button" class="ps-btn ps-btn--outline ps-btn--pill" data-ps-dropdown-toggle>
+              <span>Explore Disciplines</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="ps-dropdown-menu">
+              <a class="ps-dropdown-item ps-dropdown-item--active" href="javascript:void(0)" onclick="window.PathSyncToast.show('Selected: Computer Science & AI')">
+                <span>💻</span> Computer Science & AI
+              </a>
+              <a class="ps-dropdown-item" href="javascript:void(0)" onclick="window.PathSyncToast.show('Selected: Business & Management')">
+                <span>📈</span> Business & Management
+              </a>
+              <a class="ps-dropdown-item" href="javascript:void(0)" onclick="window.PathSyncToast.show('Selected: Engineering & Robotics')">
+                <span>⚙️</span> Engineering & Robotics
+              </a>
+              <a class="ps-dropdown-item" href="javascript:void(0)" onclick="window.PathSyncToast.show('Selected: Health Sciences')">
+                <span>🧬</span> Health Sciences
+              </a>
+              <div class="ps-dropdown-divider"></div>
+              <a class="ps-dropdown-item" href="javascript:void(0)" onclick="window.PathSyncToast.show('Selected: View All 50+ Programs')">
+                <span>✦</span> View All 50+ Programs
+              </a>
+            </div>
+          </div>
+
+          <span style="font-size:var(--font-size-sm); color:var(--color-text-tertiary);">
+            Click button to toggle menu. Auto-dismisses on outside click.
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. NAVBAR COMPONENT -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:0;">8. Navbar Component</h3>
+          <span class="ps-section-badge-code">.ps-navbar</span>
+        </div>
+        <p class="ps-section-description">Sticky, glassmorphic top navigation bar with brand icon, navigation links, and rounded CTA.</p>
+      </div>
+      <div style="border:1px solid var(--color-border-default); border-radius:var(--radius-lg); overflow:hidden;">
+        <nav class="ps-navbar" style="position:relative;">
+          <div class="ps-navbar-container">
+            <a href="#" class="ps-navbar-brand">
+              <span class="ps-brand-logo-icon">✦</span>
+              <span>PathSync <span style="color:var(--color-brand-primary);">AI</span></span>
+            </a>
+            <ul class="ps-navbar-nav">
+              <li><a href="#" class="ps-nav-link ps-nav-link--active">Home</a></li>
+              <li><a href="#" class="ps-nav-link">Pathways</a></li>
+              <li><a href="#" class="ps-nav-link">Admissions</a></li>
+              <li><a href="#" class="ps-nav-link">Mentorship</a></li>
+              <li><a href="#" class="ps-nav-link">About Us</a></li>
+            </ul>
+            <div class="ps-navbar-actions">
+              <button class="ps-btn ps-btn--ghost ps-btn--sm ps-btn--icon-only" aria-label="Search">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              </button>
+              <button class="ps-btn ps-btn--primary ps-btn--sm ps-btn--pill">Apply Now →</button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <!-- 9. SIDEBAR COMPONENT -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:0;">9. Sidebar Component</h3>
+          <span class="ps-section-badge-code">.ps-sidebar</span>
+        </div>
+        <p class="ps-section-description">Dashboard navigation with structured groups, icon badges, active pills, and user profile chip.</p>
+      </div>
+      <div style="display:flex; border:1px solid var(--color-border-default); border-radius:var(--radius-lg); overflow:hidden; height:420px; background:var(--color-bg-alternate);">
+        <aside class="ps-sidebar" style="min-height:100%; border-radius:0;">
+          <div class="ps-sidebar-header">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="ps-brand-logo-icon" style="width:28px; height:28px; font-size:14px;">✦</span>
+              <span style="font-weight:700; font-size:var(--font-size-base); color:var(--color-text-primary);">PathSync</span>
+            </div>
+            <button class="ps-btn ps-btn--ghost ps-btn--icon-only ps-btn--sm" title="Toggle">◫</button>
+          </div>
+
+          <div class="ps-sidebar-nav-group">
+            <span class="ps-sidebar-group-label">Learner Hub</span>
+            <a href="javascript:void(0)" class="ps-sidebar-nav-item ps-sidebar-nav-item--active">
+              <div class="ps-sidebar-nav-item-content">
+                <span>🧭</span>
+                <span>My Pathways</span>
+              </div>
+              <span class="ps-badge ps-badge--brand ps-badge--pill" style="font-size:10px;">Active</span>
+            </a>
+            <a href="javascript:void(0)" class="ps-sidebar-nav-item">
+              <div class="ps-sidebar-nav-item-content">
+                <span>📊</span>
+                <span>Skill Analytics</span>
+              </div>
+            </a>
+            <a href="javascript:void(0)" class="ps-sidebar-nav-item">
+              <div class="ps-sidebar-nav-item-content">
+                <span>🎯</span>
+                <span>Opportunity Match</span>
+              </div>
+              <span class="ps-badge ps-badge--mint ps-badge--pill" style="font-size:10px;">94%</span>
+            </a>
+          </div>
+
+          <div class="ps-sidebar-nav-group">
+            <span class="ps-sidebar-group-label">Intelligence</span>
+            <a href="javascript:void(0)" class="ps-sidebar-nav-item">
+              <div class="ps-sidebar-nav-item-content">
+                <span>🤖</span>
+                <span>AI Mentor Chat</span>
+              </div>
+            </a>
+            <a href="javascript:void(0)" class="ps-sidebar-nav-item">
+              <div class="ps-sidebar-nav-item-content">
+                <span>⚙️</span>
+                <span>Settings</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="ps-sidebar-footer">
+            <div class="ps-sidebar-user">
+              <div class="ps-avatar ps-avatar--sm">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Sarah J.">
+                <span class="ps-avatar-status ps-avatar-status--online"></span>
+              </div>
+              <div class="ps-sidebar-user-info">
+                <span class="ps-sidebar-user-name">Sarah Jenkins</span>
+                <span class="ps-sidebar-user-role">AI Track • Senior</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Dummy Main Content Area -->
+        <div style="flex:1; padding:32px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+          <h4 style="margin-bottom:8px;">Main Dashboard Canvas</h4>
+          <p style="max-width:380px; font-size:var(--font-size-sm); color:var(--color-text-secondary);">
+            Pages combine PageHeaders, StatCards, and OpportunityCards seamlessly inside this layout.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. PAGE HEADER COMPONENT -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:0;">10. PageHeader Component</h3>
+          <span class="ps-section-badge-code">.ps-page-header</span>
+        </div>
+        <p class="ps-section-description">Page-level title, breadcrumbs trail, descriptive subtitle, and primary action controls.</p>
+      </div>
+      <div class="ps-preview-box">
+        <div class="ps-page-header" style="margin-bottom:0;">
+          <ul class="ps-breadcrumbs">
+            <li><a href="#">Academic Paths</a></li>
+            <li class="ps-breadcrumbs-separator">/</li>
+            <li><a href="#">Computer Science & AI</a></li>
+            <li class="ps-breadcrumbs-separator">/</li>
+            <li>Curriculum Roadmap</li>
+          </ul>
+          <div class="ps-page-header-row">
+            <div>
+              <h2 class="ps-page-header-title">Artificial Intelligence Engineering Track</h2>
+              <p class="ps-page-header-subtitle">
+                Comprehensive 4-year curriculum integrated with Stanford AI research labs and partner internships.
+              </p>
+            </div>
+            <div class="ps-page-header-actions">
+              <button class="ps-btn ps-btn--outline ps-btn--pill">Download Syllabus</button>
+              <button class="ps-btn ps-btn--primary ps-btn--pill">Enroll in Track →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. SECTION HEADER COMPONENT -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:0;">11. SectionHeader Component</h3>
+          <span class="ps-section-badge-code">.ps-section-header</span>
+        </div>
+        <p class="ps-section-description">Eyebrow pill, high-contrast H2 title with accented typography, and right-aligned link action.</p>
+      </div>
+      <div class="ps-preview-box">
+        <div class="ps-section-header" style="margin-bottom:0;">
+          <div class="ps-section-header-content">
+            <span class="ps-section-eyebrow">OUR METHODOLOGY</span>
+            <h2 class="ps-section-title">Explore Our Academic Programs</h2>
+            <p class="ps-section-description">
+              From foundational engineering to high-growth AI management — find the precision pathway that matches your ambition.
+            </p>
+          </div>
+          <div class="ps-section-action">
+            <a href="#" class="ps-btn ps-btn--secondary ps-btn--pill">View All Programs →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. STAT CARD COMPONENT -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:0;">12. StatCard Component</h3>
+          <span class="ps-section-badge-code">.ps-stat-card</span>
+        </div>
+        <p class="ps-section-description">Metric cards with soft mint icon boxes, large bold values, and light/dark surface variants.</p>
+      </div>
+      <div class="ps-preview-grid-4">
+        <!-- Stat 1 -->
+        <div class="ps-stat-card">
+          <div class="ps-stat-icon-box">🏛️</div>
+          <div class="ps-stat-content">
+            <span class="ps-stat-value">Top-Ranked</span>
+            <span class="ps-stat-label">AI University Guidance</span>
+            <span class="ps-stat-trend ps-stat-trend--up">▲ #1 in region</span>
+          </div>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="ps-stat-card">
+          <div class="ps-stat-icon-box">📚</div>
+          <div class="ps-stat-content">
+            <span class="ps-stat-value">500+</span>
+            <span class="ps-stat-label">Academic Pathways</span>
+            <span class="ps-stat-subtext">Across 14 industries</span>
+          </div>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="ps-stat-card">
+          <div class="ps-stat-icon-box">👥</div>
+          <div class="ps-stat-content">
+            <span class="ps-stat-value">25,000+</span>
+            <span class="ps-stat-label">Active Learners</span>
+            <span class="ps-stat-trend ps-stat-trend--up">▲ +18% this month</span>
+          </div>
+        </div>
+
+        <!-- Stat 4 (Dark Variant) -->
+        <div class="ps-stat-card ps-stat-card--dark" style="background:var(--color-bg-forest);">
+          <div class="ps-stat-icon-box" style="background:rgba(255,255,255,0.15); color:var(--color-accent-mint);">🏆</div>
+          <div class="ps-stat-content">
+            <span class="ps-stat-value" style="color:#FFF;">95%</span>
+            <span class="ps-stat-label" style="color:#CBD5E1;">Graduate Placement</span>
+            <span class="ps-stat-subtext" style="color:var(--color-accent-mint);">Within 6 months</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. LOADING STATE COMPONENT -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:0;">13. LoadingState Component</h3>
+          <span class="ps-section-badge-code">.ps-skeleton, .ps-spinner</span>
+        </div>
+        <p class="ps-section-description">Content shimmer placeholders and circular gradient spinners for asynchronous loading.</p>
+      </div>
+      <div class="ps-preview-grid-3">
+        <!-- Skeleton Card 1 -->
+        <div class="ps-skeleton-card">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div class="ps-skeleton ps-skeleton-avatar"></div>
+            <div style="flex:1;">
+              <div class="ps-skeleton ps-skeleton-text" style="width:70%;"></div>
+              <div class="ps-skeleton ps-skeleton-text ps-skeleton-text--short"></div>
+            </div>
+          </div>
+          <div class="ps-skeleton ps-skeleton-text ps-skeleton-text--heading" style="margin-top:8px;"></div>
+          <div class="ps-skeleton ps-skeleton-text"></div>
+          <div class="ps-skeleton ps-skeleton-text" style="width:85%;"></div>
+          <div class="ps-skeleton ps-skeleton-text ps-skeleton-text--short" style="height:32px; border-radius:var(--radius-full); margin-top:8px;"></div>
+        </div>
+
+        <!-- Skeleton Card 2 -->
+        <div class="ps-skeleton-card">
+          <div class="ps-skeleton" style="height:120px; border-radius:var(--radius-md);"></div>
+          <div class="ps-skeleton ps-skeleton-text ps-skeleton-text--heading" style="margin-top:8px;"></div>
+          <div class="ps-skeleton ps-skeleton-text"></div>
+          <div class="ps-skeleton ps-skeleton-text" style="width:50%;"></div>
+        </div>
+
+        <!-- Spinners -->
+        <div class="ps-card" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;">
+          <span class="ps-spinner ps-spinner--lg"></span>
+          <span style="font-size:var(--font-size-sm); font-weight:600; color:var(--color-text-primary);">
+            Synthesizing Career Match...
+          </span>
+          <div style="display:flex; gap:12px; align-items:center;">
+            <span class="ps-spinner ps-spinner--sm"></span>
+            <span class="ps-spinner"></span>
+            <span class="ps-spinner ps-spinner--lg"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14. EMPTY STATE COMPONENT -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:0;">14. EmptyState Component</h3>
+          <span class="ps-section-badge-code">.ps-empty-state</span>
+        </div>
+        <p class="ps-section-description">Clean, encouraging empty container for search without results or pending enrollments.</p>
+      </div>
+      <div class="ps-preview-box">
+        <div class="ps-empty-state">
+          <div class="ps-empty-icon-wrap">🔍</div>
+          <h3 class="ps-empty-title">No Matching Pathways Found</h3>
+          <p class="ps-empty-description">
+            We couldn't find any career programs matching your specific query. Try adjusting your filters or launch the AI pathway advisor.
+          </p>
+          <div style="display:flex; gap:12px;">
+            <button class="ps-btn ps-btn--primary ps-btn--pill">Reset All Filters</button>
+            <button class="ps-btn ps-btn--outline ps-btn--pill" data-ps-modal-target="#demoModal">Ask AI Advisor</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 15. ERROR STATE COMPONENT -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:0;">15. ErrorState Component</h3>
+          <span class="ps-section-badge-code">.ps-error-state</span>
+        </div>
+        <p class="ps-section-description">Non-disruptive, soft crimson container with clear error descriptions and remediation paths.</p>
+      </div>
+      <div class="ps-preview-box">
+        <div class="ps-error-state">
+          <div class="ps-error-icon-wrap">⚠️</div>
+          <h3 class="ps-error-title">Unable to Load Career Recommendations</h3>
+          <p class="ps-error-description">
+            The AI pathway engine encountered a temporary timeout while processing your profile sync. Please try again or reach out to support.
+          </p>
+          <div class="ps-error-actions">
+            <button class="ps-btn ps-btn--primary ps-btn--pill ps-btn--sm" onclick="window.PathSyncToast.show('Retrying sync...')">
+              Try Again ↻
+            </button>
+            <button class="ps-btn ps-btn--ghost ps-btn--pill ps-btn--sm">
+              Contact Academic Support
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 16. OPPORTUNITY CARD COMPONENT -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:0;">16. OpportunityCard Component</h3>
+          <span class="ps-section-badge-code">.ps-opportunity-card</span>
+        </div>
+        <p class="ps-section-description">High-impact academic and internship opportunity card with match badges, metadata pills, and actions.</p>
+      </div>
+      <div class="ps-preview-grid-3">
+        <!-- Opportunity 1 -->
+        <article class="ps-opportunity-card">
+          <div>
+            <div class="ps-opportunity-top">
+              <span class="ps-badge ps-badge--brand ps-badge--pill">Computer Science & AI</span>
+              <span class="ps-badge ps-badge--mint ps-badge--pill">98% Match</span>
+            </div>
+            <h4 class="ps-opportunity-title">Deep Learning Research Fellowship</h4>
+            <div class="ps-opportunity-org">
+              <span>🏛️ Stanford AI Lab • PathSync Partner</span>
+            </div>
+            <p class="ps-opportunity-description">
+              Hands-on residency focusing on transformer architectures, multi-modal reasoning, and autonomous agent safety.
+            </p>
+            <div class="ps-opportunity-meta-row">
+              <span class="ps-meta-pill">📍 Hybrid • Palo Alto</span>
+              <span class="ps-meta-pill">⏱ 12 Weeks</span>
+              <span class="ps-meta-pill">💰 $5,500/mo</span>
+            </div>
+          </div>
+          <div class="ps-opportunity-footer">
+            <span style="font-size:var(--font-size-xs); color:var(--color-text-tertiary);">Deadline: April 30</span>
+            <button class="ps-btn ps-btn--primary ps-btn--pill ps-btn--sm" onclick="window.PathSyncToast.show('Applied for Deep Learning Fellowship!')">
+              Apply Now →
+            </button>
+          </div>
+        </article>
+
+        <!-- Opportunity 2 -->
+        <article class="ps-opportunity-card">
+          <div>
+            <div class="ps-opportunity-top">
+              <span class="ps-badge ps-badge--brand ps-badge--pill">Cloud & Distributed Systems</span>
+              <span class="ps-badge ps-badge--mint ps-badge--pill">94% Match</span>
+            </div>
+            <h4 class="ps-opportunity-title">Cloud Infrastructure Residency</h4>
+            <div class="ps-opportunity-org">
+              <span>☁️ NextGen Cloud Consortium</span>
+            </div>
+            <p class="ps-opportunity-description">
+              Design resilient microservices, Kubernetes orchestration, and low-latency edge networks with senior staff mentors.
+            </p>
+            <div class="ps-opportunity-meta-row">
+              <span class="ps-meta-pill">📍 100% Remote</span>
+              <span class="ps-meta-pill">⏱ 6 Months</span>
+              <span class="ps-meta-pill">🎓 6 College Credits</span>
+            </div>
+          </div>
+          <div class="ps-opportunity-footer">
+            <span style="font-size:var(--font-size-xs); color:var(--color-text-tertiary);">Deadline: May 15</span>
+            <button class="ps-btn ps-btn--primary ps-btn--pill ps-btn--sm" onclick="window.PathSyncToast.show('Applied for Cloud Residency!')">
+              Apply Now →
+            </button>
+          </div>
+        </article>
+
+        <!-- Opportunity 3 -->
+        <article class="ps-opportunity-card">
+          <div>
+            <div class="ps-opportunity-top">
+              <span class="ps-badge ps-badge--brand ps-badge--pill">Biotech & Health Informatics</span>
+              <span class="ps-badge ps-badge--mint ps-badge--pill">91% Match</span>
+            </div>
+            <h4 class="ps-opportunity-title">Genomics Data Science Cohort</h4>
+            <div class="ps-opportunity-org">
+              <span>🧬 Broad Institute Clinical Affiliate</span>
+            </div>
+            <p class="ps-opportunity-description">
+              Analyze sequencing datasets with modern machine learning pipelines to discover novel therapeutic targets.
+            </p>
+            <div class="ps-opportunity-meta-row">
+              <span class="ps-meta-pill">📍 Boston, MA</span>
+              <span class="ps-meta-pill">⏱ 16 Weeks</span>
+              <span class="ps-meta-pill">💰 $4,800/mo</span>
+            </div>
+          </div>
+          <div class="ps-opportunity-footer">
+            <span style="font-size:var(--font-size-xs); color:var(--color-text-tertiary);">Deadline: June 01</span>
+            <button class="ps-btn ps-btn--primary ps-btn--pill ps-btn--sm" onclick="window.PathSyncToast.show('Applied for Genomics Cohort!')">
+              Apply Now →
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ========================================================================
+       TAB VIEW 2: FULL LANDING PAGE DEMO (Faithful to Reference Standard)
+       ======================================================================== -->
+  <div id="landing-demo-view" data-ps-tab-panel="landing-demo-view" style="display:none;">
+
+    <!-- Sticky Main Navigation -->
+    <nav class="ps-navbar">
+      <div class="ps-navbar-container">
+        <a href="#" class="ps-navbar-brand">
+          <span class="ps-brand-logo-icon">✦</span>
+          <span>PathSync <span style="color:var(--color-brand-primary);">AI</span></span>
+        </a>
+        <ul class="ps-navbar-nav">
+          <li><a href="#" class="ps-nav-link ps-nav-link--active">Home</a></li>
+          <li><a href="#programs" class="ps-nav-link">Programs</a></li>
+          <li><a href="#admissions" class="ps-nav-link">Admissions</a></li>
+          <li><a href="#campus" class="ps-nav-link">Campus Life</a></li>
+          <li><a href="#about" class="ps-nav-link">About Us</a></li>
+          <li><a href="#blog" class="ps-nav-link">Blog</a></li>
+        </ul>
+        <div class="ps-navbar-actions">
+          <button class="ps-btn ps-btn--ghost ps-btn--sm ps-btn--icon-only" aria-label="Search" onclick="window.PathSyncToast.show('Search Pathways activated')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </button>
+          <button class="ps-btn ps-btn--primary ps-btn--sm ps-btn--pill" data-ps-modal-target="#demoModal">Apply Now →</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="ps-hero-section">
+      <div class="ps-container">
+        <div class="ps-hero-grid">
+          
+          <!-- Left Column Content -->
+          <div>
+            <div style="margin-bottom:12px;">
+              <span class="ps-badge ps-badge--brand ps-badge--pill">
+                • LEARN • GROW • BUILD YOUR FUTURE
+              </span>
+            </div>
+            <h1 style="margin-bottom:20px; line-height:1.15;">
+              Your Dream Education Starts <span style="color:var(--color-brand-primary); font-style:italic;">Here</span>
+            </h1>
+            <p style="font-size:var(--font-size-lg); color:var(--color-text-secondary); max-width:540px; margin-bottom:32px;">
+              PathSync AI provides world-class academic pathways, personalized learning environments, and a supportive intelligence network to help you achieve your career aspirations.
+            </p>
+            <div style="display:flex; align-items:center; flex-wrap:wrap; gap:16px;">
+              <a href="#programs" class="ps-btn ps-btn--primary ps-btn--lg ps-btn--pill">
+                <span>Explore Programs</span>
+                <svg class="ps-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7" stroke-width="2"/></svg>
+              </a>
+              <button class="ps-btn ps-btn--secondary ps-btn--lg ps-btn--pill" onclick="window.PathSyncToast.show('Campus Tour video player launched')">
+                <svg class="ps-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="5 3 19 12 5 21 5 3" stroke-width="2"/></svg>
+                <span>Watch Campus Tour</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column Visual Card -->
+          <div class="ps-hero-visual-card">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1000&auto=format&fit=crop&q=80" alt="Students in modern campus library" class="ps-hero-image">
+            
+            <!-- Floating Chip 1 (Top Left) -->
+            <div class="ps-floating-chip" style="top:24px; left:24px;">
+              <span style="display:inline-flex; width:24px; height:24px; border-radius:50%; background:var(--color-brand-primary-subtle); color:var(--color-brand-primary); align-items:center; justify-content:center;">✓</span>
+              <span>Top-Ranked AI Pathways</span>
+            </div>
+
+            <!-- Floating Chip 2 (Bottom Right) -->
+            <div class="ps-floating-chip" style="bottom:28px; right:24px; animation-delay:-2s;">
+              <span class="ps-badge-dot" style="background:var(--color-accent-mint); width:10px; height:10px;"></span>
+              <span>Real-World Skills Matrix</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Stats Dock Bar (Overlapping Hero) -->
+    <div class="ps-container ps-hero-stats-dock">
+      <div class="ps-stats-dock-bar">
+        <!-- Item 1 -->
+        <div style="display:flex; align-items:center; gap:16px;">
+          <div class="ps-stat-icon-box">🏛️</div>
+          <div>
+            <div style="font-size:var(--font-size-lg); font-weight:700; color:var(--color-text-primary);">Top-Ranked</div>
+            <div style="font-size:var(--font-size-xs); color:var(--color-text-tertiary);">University in the region</div>
+          </div>
+        </div>
+        <!-- Item 2 -->
+        <div style="display:flex; align-items:center; gap:16px;">
+          <div class="ps-stat-icon-box">📚</div>
+          <div>
+            <div style="font-size:var(--font-size-lg); font-weight:700; color:var(--color-text-primary);">50+</div>
+            <div style="font-size:var(--font-size-xs); color:var(--color-text-tertiary);">Academic Programs & Courses</div>
+          </div>
+        </div>
+        <!-- Item 3 -->
+        <div style="display:flex; align-items:center; gap:16px;">
+          <div class="ps-stat-icon-box">👥</div>
+          <div>
+            <div style="font-size:var(--font-size-lg); font-weight:700; color:var(--color-text-primary);">10,000+</div>
+            <div style="font-size:var(--font-size-xs); color:var(--color-text-tertiary);">Active Students Worldwide</div>
+          </div>
+        </div>
+        <!-- Item 4 -->
+        <div style="display:flex; align-items:center; gap:16px;">
+          <div class="ps-stat-icon-box">🏆</div>
+          <div>
+            <div style="font-size:var(--font-size-lg); font-weight:700; color:var(--color-text-primary);">95%</div>
+            <div style="font-size:var(--font-size-xs); color:var(--color-text-tertiary);">Graduate Employment Rate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Programs Section -->
+    <section id="programs" style="padding:100px 0 80px 0; background-color:var(--color-bg-canvas);">
+      <div class="ps-container">
+        
+        <div class="ps-section-header">
+          <div class="ps-section-header-content">
+            <span class="ps-section-eyebrow">OUR PROGRAMS</span>
+            <h2 class="ps-section-title">Explore Our Academic Programs</h2>
+            <p class="ps-section-description">
+              From technology to business, arts to science — find the program that matches your passion and builds your future.
+            </p>
+          </div>
+          <div class="ps-section-action">
+            <a href="#" class="ps-btn ps-btn--primary ps-btn--pill">View All Programs →</a>
+          </div>
+        </div>
+
+        <!-- Category Grid (Inspired directly by the reference horizontal cards) -->
+        <div class="ps-preview-grid-3" style="gap:20px; margin-bottom:40px;">
+          
+          <a href="javascript:void(0)" class="ps-category-pill-card">
+            <div style="display:flex; align-items:center; gap:14px;">
+              <div class="ps-stat-icon-box" style="width:44px; height:44px; font-size:20px;">💻</div>
+              <div>
+                <h4 style="font-size:var(--font-size-base); margin-bottom:2px;">Computer Science & IT</h4>
+                <p style="font-size:var(--font-size-xs); color:var(--color-text-tertiary); margin:0;">Build the digital future with AI.</p>
+              </div>
+            </div>
+            <span style="font-size:var(--font-size-xs); font-weight:600; color:var(--color-brand-primary);">Explore →</span>
+          </a>
+
+          <a href="javascript:void(0)" class="ps-category-pill-card">
+            <div style="display:flex; align-items:center; gap:14px;">
+              <div class="ps-stat-icon-box" style="width:44px; height:44px; font-size:20px;">💼</div>
+              <div>
+                <h4 style="font-size:var(--font-size-base); margin-bottom:2px;">Business & Management</h4>
+                <p style="font-size:var(--font-size-xs); color:var(--color-text-tertiary); margin:0;">Lead and create impact worldwide.</p>
+              </div>
+            </div>
+            <span style="font-size:var(--font-size-xs); font-weight:600; color:var(--color-brand-primary);">Explore →</span>
+          </a>
+
+          <a href="javascript:void(0)" class="ps-category-pill-card">
+            <div style="display:flex; align-items:center; gap:14px;">
+              <div class="ps-stat-icon-box" style="width:44px; height:44px; font-size:20px;">⚙️</div>
+              <div>
+                <h4 style="font-size:var(--font-size-base); margin-bottom:2px;">Engineering</h4>
+                <p style="font-size:var(--font-size-xs); color:var(--color-text-tertiary); margin:0;">Design a better tomorrow.</p>
+              </div>
+            </div>
+            <span style="font-size:var(--font-size-xs); font-weight:600; color:var(--color-brand-primary);">Explore →</span>
+          </a>
+
+          <a href="javascript:void(0)" class="ps-category-pill-card">
+            <div style="display:flex; align-items:center; gap:14px;">
+              <div class="ps-stat-icon-box" style="width:44px; height:44px; font-size:20px;">🎨</div>
+              <div>
+                <h4 style="font-size:var(--font-size-base); margin-bottom:2px;">Arts & Humanities</h4>
+                <p style="font-size:var(--font-size-xs); color:var(--color-text-tertiary); margin:0;">Explore, create, and express.</p>
+              </div>
+            </div>
+            <span style="font-size:var(--font-size-xs); font-weight:600; color:var(--color-brand-primary);">Explore →</span>
+          </a>
+
+          <a href="javascript:void(0)" class="ps-category-pill-card">
+            <div style="display:flex; align-items:center; gap:14px;">
+              <div class="ps-stat-icon-box" style="width:44px; height:44px; font-size:20px;">🩺</div>
+              <div>
+                <h4 style="font-size:var(--font-size-base); margin-bottom:2px;">Health & Life Sciences</h4>
+                <p style="font-size:var(--font-size-xs); color:var(--color-text-tertiary); margin:0;">Advance care & scientific research.</p>
+              </div>
+            </div>
+            <span style="font-size:var(--font-size-xs); font-weight:600; color:var(--color-brand-primary);">Explore →</span>
+          </a>
+
+          <a href="javascript:void(0)" class="ps-category-pill-card">
+            <div style="display:flex; align-items:center; gap:14px;">
+              <div class="ps-stat-icon-box" style="width:44px; height:44px; font-size:20px;">🌐</div>
+              <div>
+                <h4 style="font-size:var(--font-size-base); margin-bottom:2px;">Social Sciences & Law</h4>
+                <p style="font-size:var(--font-size-xs); color:var(--color-text-tertiary); margin:0;">Understand and shape societies.</p>
+              </div>
+            </div>
+            <span style="font-size:var(--font-size-xs); font-weight:600; color:var(--color-brand-primary);">Explore →</span>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Deep Forest Spotlight Section ("A Place to Learn, Grow and Belong") -->
+    <section id="about" class="ps-spotlight-section">
+      <div class="ps-container">
+        <div class="ps-spotlight-box">
+          
+          <!-- Image Left -->
+          <div style="border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-lg);">
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=900&auto=format&fit=crop&q=80" alt="PathSync AI Modern Campus" style="width:100%; height:380px; object-fit:cover;">
+          </div>
+
+          <!-- Content Right -->
+          <div>
+            <span class="ps-badge ps-badge--dark ps-badge--pill" style="margin-bottom:14px;">
+              • ABOUT PATHSYNC AI
+            </span>
+            <h2 style="color:#FFFFFF; font-size:var(--font-size-3xl); margin-bottom:16px;">
+              A Place to Learn, Grow and Belong
+            </h2>
+            <p style="color:#CBD5E1; margin-bottom:28px;">
+              At PathSync AI, we believe education is more than just a degree — it's a journey of self-discovery, innovation, and purpose. Our diverse community and world-class mentors create the perfect launchpad for your dreams.
+            </p>
+
+            <div>
+              <div class="ps-spotlight-feature-item">
+                <div class="ps-spotlight-icon-wrap">🏢</div>
+                <div>
+                  <h4 style="color:#FFF; font-size:var(--font-size-base); margin-bottom:2px;">Modern Campus & Labs</h4>
+                  <p style="color:#CBD5E1; font-size:var(--font-size-xs); margin:0;">State-of-the-art facilities designed for collaboration.</p>
+                </div>
+              </div>
+
+              <div class="ps-spotlight-feature-item">
+                <div class="ps-spotlight-icon-wrap">👨‍🏫</div>
+                <div>
+                  <h4 style="color:#FFF; font-size:var(--font-size-base); margin-bottom:2px;">Expert Faculty & Mentors</h4>
+                  <p style="color:#CBD5E1; font-size:var(--font-size-xs); margin:0;">Industry pioneers guiding your academic milestones.</p>
+                </div>
+              </div>
+
+              <div class="ps-spotlight-feature-item">
+                <div class="ps-spotlight-icon-wrap">🌍</div>
+                <div>
+                  <h4 style="color:#FFF; font-size:var(--font-size-base); margin-bottom:2px;">Global Opportunities</h4>
+                  <p style="color:#CBD5E1; font-size:var(--font-size-xs); margin:0;">International exchanges, fellowships, and internships.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:24px;">
+              <button class="ps-btn ps-btn--light ps-btn--pill">
+                Learn More About Us →
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Dark Impact Section ("Our Impact in Numbers") -->
+    <section class="ps-impact-banner">
+      <div class="ps-container">
+        <h2 style="color:#FFFFFF; margin-bottom:8px;">Our Impact in Numbers</h2>
+        <p style="color:#CBD5E1; max-width:480px; margin:0 auto 48px auto;">
+          Years of excellence, thousands of dreams, one unified pathway platform.
+        </p>
+
+        <div class="ps-preview-grid-4">
+          <div class="ps-stat-card ps-stat-card--dark">
+            <div class="ps-stat-icon-box">⭐</div>
+            <div class="ps-stat-content">
+              <span class="ps-stat-value">10+</span>
+              <span class="ps-stat-label">Years of Excellence</span>
+            </div>
+          </div>
+
+          <div class="ps-stat-card ps-stat-card--dark">
+            <div class="ps-stat-icon-box">🎓</div>
+            <div class="ps-stat-content">
+              <span class="ps-stat-value">50+</span>
+              <span class="ps-stat-label">Academic Programs</span>
+            </div>
+          </div>
+
+          <div class="ps-stat-card ps-stat-card--dark">
+            <div class="ps-stat-icon-box">👥</div>
+            <div class="ps-stat-content">
+              <span class="ps-stat-value">10,000+</span>
+              <span class="ps-stat-label">Students Enrolled</span>
+            </div>
+          </div>
+
+          <div class="ps-stat-card ps-stat-card--dark">
+            <div class="ps-stat-icon-box">📈</div>
+            <div class="ps-stat-content">
+              <span class="ps-stat-value">95%</span>
+              <span class="ps-stat-label">Employment Rate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Student Stories / Testimonials Section -->
+    <section style="padding:100px 0; background-color:var(--color-bg-alternate);">
+      <div class="ps-container">
+        
+        <div class="ps-section-header" style="text-align:center; display:block; margin-bottom:48px;">
+          <span class="ps-section-eyebrow">WHAT OUR STUDENTS SAY</span>
+          <h2 class="ps-section-title">Real Stories. Lasting Impact.</h2>
+          <p class="ps-section-description" style="margin:0 auto;">
+            Hear directly from our alumni and students about their PathSync journey.
+          </p>
+        </div>
+
+        <div class="ps-preview-grid-3">
+          <!-- Story 1 -->
+          <div class="ps-card">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+              <div class="ps-avatar ps-avatar--md">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Ayesha R.">
+              </div>
+              <div>
+                <h5 style="margin:0;">Ayesha Rahman</h5>
+                <span style="font-size:var(--font-size-xs); color:var(--color-text-tertiary);">Computer Science Graduate</span>
+              </div>
+            </div>
+            <p style="font-size:var(--font-size-sm); color:var(--color-text-secondary); margin-bottom:14px;">
+              "PathSync AI gave me the confidence and industry skills to secure an internship at top tech labs. The supportive mentors made all the difference."
+            </p>
+            <div style="color:var(--color-warning); font-size:14px;">★★★★★</div>
+          </div>
+
+          <!-- Story 2 -->
+          <div class="ps-card">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+              <div class="ps-avatar ps-avatar--md">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Rafiul I.">
+              </div>
+              <div>
+                <h5 style="margin:0;">Rafiul Islam</h5>
+                <span style="font-size:var(--font-size-xs); color:var(--color-text-tertiary);">Business Administration '25</span>
+              </div>
+            </div>
+            <p style="font-size:var(--font-size-sm); color:var(--color-text-secondary); margin-bottom:14px;">
+              "The hands-on project pathways and curriculum intelligence pinpointed exactly what employers were hiring for. I had an offer before finals!"
+            </p>
+            <div style="color:var(--color-warning); font-size:14px;">★★★★★</div>
+          </div>
+
+          <!-- Story 3 -->
+          <div class="ps-card">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+              <div class="ps-avatar ps-avatar--md">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Nusrat J.">
+              </div>
+              <div>
+                <h5 style="margin:0;">Nusrat Jahan</h5>
+                <span style="font-size:var(--font-size-xs); color:var(--color-text-tertiary);">Engineering AI Specialization</span>
+              </div>
+            </div>
+            <p style="font-size:var(--font-size-sm); color:var(--color-text-secondary); margin-bottom:14px;">
+              "The global network and cross-disciplinary projects helped me develop both technically and professionally. Truly a world-class platform."
+            </p>
+            <div style="color:var(--color-warning); font-size:14px;">★★★★★</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section style="padding:100px 0; background-color:var(--color-bg-canvas);">
+      <div class="ps-container">
+        <div class="ps-section-header">
+          <div class="ps-section-header-content">
+            <span class="ps-section-eyebrow">UPCOMING EVENTS</span>
+            <h2 class="ps-section-title">Don't Miss Out</h2>
+            <p class="ps-section-description">
+              Join our career fairs, technology workshops, and mentorship roundtables.
+            </p>
+          </div>
+          <div class="ps-section-action">
+            <a href="#" class="ps-btn ps-btn--outline ps-btn--pill">View All Events →</a>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center;">
+          <!-- Left Column Event List -->
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            
+            <div class="ps-card ps-card--interactive" style="display:flex; align-items:center; gap:20px; padding:18px 24px;">
+              <div style="text-align:center; padding:10px 14px; background:var(--color-brand-primary-subtle); border-radius:var(--radius-md); color:var(--color-brand-primary);">
+                <div style="font-size:var(--font-size-xl); font-weight:800; line-height:1;">22</div>
+                <div style="font-size:10px; font-weight:700; text-transform:uppercase;">APR</div>
+              </div>
+              <div>
+                <h4 style="font-size:var(--font-size-base); margin-bottom:4px;">Annual AI Career Fair 2026</h4>
+                <p style="font-size:var(--font-size-xs); color:var(--color-text-tertiary); margin:0;">Campus Grand Hall • 10:00 AM - 4:00 PM</p>
+              </div>
+            </div>
+
+            <div class="ps-card ps-card--interactive" style="display:flex; align-items:center; gap:20px; padding:18px 24px;">
+              <div style="text-align:center; padding:10px 14px; background:var(--color-brand-primary-subtle); border-radius:var(--radius-md); color:var(--color-brand-primary);">
+                <div style="font-size:var(--font-size-xl); font-weight:800; line-height:1;">28</div>
+                <div style="font-size:10px; font-weight:700; text-transform:uppercase;">APR</div>
+              </div>
+              <div>
+                <h4 style="font-size:var(--font-size-base); margin-bottom:4px;">Tech & Innovation Hackathon</h4>
+                <p style="font-size:var(--font-size-xs); color:var(--color-text-tertiary); margin:0;">Innovation Lab • 11:00 AM - 1:00 PM</p>
+              </div>
+            </div>
+
+            <div class="ps-card ps-card--interactive" style="display:flex; align-items:center; gap:20px; padding:18px 24px;">
+              <div style="text-align:center; padding:10px 14px; background:var(--color-brand-primary-subtle); border-radius:var(--radius-md); color:var(--color-brand-primary);">
+                <div style="font-size:var(--font-size-xl); font-weight:800; line-height:1;">05</div>
+                <div style="font-size:10px; font-weight:700; text-transform:uppercase;">MAY</div>
+              </div>
+              <div>
+                <h4 style="font-size:var(--font-size-base); margin-bottom:4px;">International Student Fellowship Meet-up</h4>
+                <p style="font-size:var(--font-size-xs); color:var(--color-text-tertiary); margin:0;">Auditorium • 2:00 PM - 5:00 PM</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column Event Image -->
+          <div style="border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-lg);">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=900&auto=format&fit=crop&q=80" alt="Students in interactive workshop" style="width:100%; height:320px; object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Call to Action Banner -->
+    <section style="padding:80px 0; background:linear-gradient(135deg, var(--color-brand-primary-dark) 0%, #084337 100%); color:#FFFFFF;">
+      <div class="ps-container" style="text-align:center;">
+        <span class="ps-badge ps-badge--dark ps-badge--pill" style="margin-bottom:16px;">
+          • YOUR ADVISOR AWAITS
+        </span>
+        <h2 style="color:#FFFFFF; font-size:var(--font-size-4xl); margin-bottom:16px;">
+          Ready to Start Your Journey with PathSync AI?
+        </h2>
+        <p style="color:#CBD5E1; max-width:540px; margin:0 auto 32px auto;">
+          Get in touch with our AI curriculum advisor team and take the first decisive step towards a high-impact future.
+        </p>
+        <button class="ps-btn ps-btn--primary ps-btn--lg ps-btn--pill" data-ps-modal-target="#demoModal" style="background:var(--color-accent-mint); color:#06392F; font-weight:700;">
+          Apply Now →
+        </button>
+      </div>
+    </section>
+
+    <!-- Deep Forest Footer -->
+    <footer class="ps-footer">
+      <div class="ps-container">
+        <div class="ps-footer-grid">
+          
+          <!-- Col 1: Brand Info -->
+          <div>
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
+              <span class="ps-brand-logo-icon">✦</span>
+              <span style="font-size:var(--font-size-xl); font-weight:800; color:#FFFFFF;">PathSync AI</span>
+            </div>
+            <p style="font-size:var(--font-size-sm); color:#94A3B8; max-width:320px; margin-bottom:20px;">
+              The permanent visual and technological standard for AI-assisted academic guidance and career trajectory planning.
+            </p>
+            <div style="display:flex; gap:12px;">
+              <a href="#" class="ps-badge ps-badge--dark ps-badge--pill">Twitter</a>
+              <a href="#" class="ps-badge ps-badge--dark ps-badge--pill">LinkedIn</a>
+              <a href="#" class="ps-badge ps-badge--dark ps-badge--pill">GitHub</a>
+            </div>
+          </div>
+
+          <!-- Col 2: Quick Links -->
+          <div class="ps-footer-col">
+            <h5>Quick Links</h5>
+            <ul class="ps-footer-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Academic Programs</a></li>
+              <li><a href="#">Admissions</a></li>
+              <li><a href="#">Campus Life</a></li>
+              <li><a href="#">About Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Disciplines -->
+          <div class="ps-footer-col">
+            <h5>Disciplines</h5>
+            <ul class="ps-footer-links">
+              <li><a href="#">Computer Science & AI</a></li>
+              <li><a href="#">Engineering & Robotics</a></li>
+              <li><a href="#">Business Analytics</a></li>
+              <li><a href="#">Health & Biotech</a></li>
+              <li><a href="#">Design & Digital Arts</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Contact -->
+          <div class="ps-footer-col">
+            <h5>Contact Us</h5>
+            <ul class="ps-footer-links">
+              <li><span style="color:#94A3B8;">📞 +1 (800) 555-SYNC</span></li>
+              <li><span style="color:#94A3B8;">✉️ info@pathsync.ai</span></li>
+              <li><span style="color:#94A3B8;">📍 Silicon Valley & Global Hubs</span></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="ps-footer-bottom">
+          <span>© 2026 PathSync AI Platform. All rights reserved. Permanent visual standard.</span>
+          <div style="display:flex; gap:20px;">
+            <a href="#" style="color:#94A3B8;">Privacy Policy</a>
+            <a href="#" style="color:#94A3B8;">Terms of Service</a>
+            <a href="#" style="color:#94A3B8;">Cookie Preferences</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+
+  <!-- ========================================================================
+       TAB VIEW 3: DESIGN TOKENS & MATRIX SPECIFICATION
+       ======================================================================== -->
+  <div id="tokens-view" data-ps-tab-panel="tokens-view" class="ps-container" style="display:none; padding-top:40px; padding-bottom:80px;">
+    
+    <div class="ps-page-header">
+      <h1 class="ps-page-header-title">Design Tokens Matrix</h1>
+      <p class="ps-page-header-subtitle">
+        Centralized design tokens powering colors, typography, spacing, border radii, and shadows across all PathSync AI interfaces.
+      </p>
+    </div>
+
+    <!-- Color Swatches Matrix -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:4px;">Color Tokens</h3>
+        <p class="ps-section-description">Click any swatch to copy its CSS token variable.</p>
+      </div>
+      <div class="ps-preview-grid-4">
+        
+        <!-- Primary Brand -->
+        <div class="ps-swatch-card" onclick="navigator.clipboard.writeText('var(--color-brand-primary)'); window.PathSyncToast.show('Copied var(--color-brand-primary)')">
+          <div class="ps-swatch-color" style="background:#0A6C58;"></div>
+          <div class="ps-swatch-info">
+            <span class="ps-swatch-name">Brand Primary</span>
+            <span class="ps-swatch-hex">#0A6C58</span>
+            <span class="ps-swatch-var">--color-brand-primary</span>
+          </div>
+        </div>
+
+        <!-- Primary Hover -->
+        <div class="ps-swatch-card" onclick="navigator.clipboard.writeText('var(--color-brand-primary-hover)'); window.PathSyncToast.show('Copied var(--color-brand-primary-hover)')">
+          <div class="ps-swatch-color" style="background:#085444;"></div>
+          <div class="ps-swatch-info">
+            <span class="ps-swatch-name">Brand Primary Hover</span>
+            <span class="ps-swatch-hex">#085444</span>
+            <span class="ps-swatch-var">--color-brand-primary-hover</span>
+          </div>
+        </div>
+
+        <!-- Primary Subtle -->
+        <div class="ps-swatch-card" onclick="navigator.clipboard.writeText('var(--color-brand-primary-subtle)'); window.PathSyncToast.show('Copied var(--color-brand-primary-subtle)')">
+          <div class="ps-swatch-color" style="background:#EBF7F3; border-bottom:1px solid #E2E8F0;"></div>
+          <div class="ps-swatch-info">
+            <span class="ps-swatch-name">Brand Subtle Mint</span>
+            <span class="ps-swatch-hex">#EBF7F3</span>
+            <span class="ps-swatch-var">--color-brand-primary-subtle</span>
+          </div>
+        </div>
+
+        <!-- Primary Dark (Forest) -->
+        <div class="ps-swatch-card" onclick="navigator.clipboard.writeText('var(--color-brand-primary-dark)'); window.PathSyncToast.show('Copied var(--color-brand-primary-dark)')">
+          <div class="ps-swatch-color" style="background:#06392F;"></div>
+          <div class="ps-swatch-info">
+            <span class="ps-swatch-name">Brand Forest Deep</span>
+            <span class="ps-swatch-hex">#06392F</span>
+            <span class="ps-swatch-var">--color-brand-primary-dark</span>
+          </div>
+        </div>
+
+        <!-- Text Primary -->
+        <div class="ps-swatch-card" onclick="navigator.clipboard.writeText('var(--color-text-primary)'); window.PathSyncToast.show('Copied var(--color-text-primary)')">
+          <div class="ps-swatch-color" style="background:#0F172A;"></div>
+          <div class="ps-swatch-info">
+            <span class="ps-swatch-name">Text Primary (Charcoal)</span>
+            <span class="ps-swatch-hex">#0F172A</span>
+            <span class="ps-swatch-var">--color-text-primary</span>
+          </div>
+        </div>
+
+        <!-- Text Secondary -->
+        <div class="ps-swatch-card" onclick="navigator.clipboard.writeText('var(--color-text-secondary)'); window.PathSyncToast.show('Copied var(--color-text-secondary)')">
+          <div class="ps-swatch-color" style="background:#475569;"></div>
+          <div class="ps-swatch-info">
+            <span class="ps-swatch-name">Text Secondary (Muted)</span>
+            <span class="ps-swatch-hex">#475569</span>
+            <span class="ps-swatch-var">--color-text-secondary</span>
+          </div>
+        </div>
+
+        <!-- Accent Mint -->
+        <div class="ps-swatch-card" onclick="navigator.clipboard.writeText('var(--color-accent-mint)'); window.PathSyncToast.show('Copied var(--color-accent-mint)')">
+          <div class="ps-swatch-color" style="background:#10B981;"></div>
+          <div class="ps-swatch-info">
+            <span class="ps-swatch-name">Accent Mint Green</span>
+            <span class="ps-swatch-hex">#10B981</span>
+            <span class="ps-swatch-var">--color-accent-mint</span>
+          </div>
+        </div>
+
+        <!-- Alternate Background -->
+        <div class="ps-swatch-card" onclick="navigator.clipboard.writeText('var(--color-bg-alternate)'); window.PathSyncToast.show('Copied var(--color-bg-alternate)')">
+          <div class="ps-swatch-color" style="background:#F8FAFC; border-bottom:1px solid #E2E8F0;"></div>
+          <div class="ps-swatch-info">
+            <span class="ps-swatch-name">Alternate Canvas</span>
+            <span class="ps-swatch-hex">#F8FAFC</span>
+            <span class="ps-swatch-var">--color-bg-alternate</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Typography Scale Preview -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:4px;">Typography Scale</h3>
+        <p class="ps-section-description">Inter modern sans-serif scale with proportional line-heights and snug tracking.</p>
+      </div>
+      <div class="ps-preview-box">
+        <div style="display:flex; flex-direction:column; gap:24px;">
+          <div>
+            <span style="font-size:var(--font-size-xs); font-family:var(--font-family-mono); color:var(--color-brand-primary);">
+              clamp(2.25rem, 5vw, 3.75rem) • Extrabold • --font-size-5xl
+            </span>
+            <div style="font-size:clamp(2rem, 4vw, 3rem); font-weight:800; color:var(--color-text-primary); letter-spacing:-0.03em;">
+              Your Dream Education Starts Here
+            </div>
+          </div>
+
+          <div>
+            <span style="font-size:var(--font-size-xs); font-family:var(--font-family-mono); color:var(--color-brand-primary);">
+              1.875rem (30px) • Bold • --font-size-3xl
+            </span>
+            <div style="font-size:var(--font-size-3xl); font-weight:700; color:var(--color-text-primary);">
+              Explore Our Academic & Career Programs
+            </div>
+          </div>
+
+          <div>
+            <span style="font-size:var(--font-size-xs); font-family:var(--font-family-mono); color:var(--color-brand-primary);">
+              1.5rem (24px) • Semibold • --font-size-2xl
+            </span>
+            <div style="font-size:var(--font-size-2xl); font-weight:600; color:var(--color-text-primary);">
+              A Place to Learn, Grow and Belong
+            </div>
+          </div>
+
+          <div>
+            <span style="font-size:var(--font-size-xs); font-family:var(--font-family-mono); color:var(--color-brand-primary);">
+              1.125rem (18px) • Regular • --font-size-lg
+            </span>
+            <div style="font-size:var(--font-size-lg); color:var(--color-text-secondary); line-height:1.6;">
+              PathSync AI provides world-class education, modern learning environments, and supportive mentorship.
+            </div>
+          </div>
+
+          <div>
+            <span style="font-size:var(--font-size-xs); font-family:var(--font-family-mono); color:var(--color-brand-primary);">
+              0.875rem (14px) • Medium • --font-size-sm
+            </span>
+            <div style="font-size:var(--font-size-sm); color:var(--color-text-secondary);">
+              Clean UI labels, interactive navigation, form placeholders, and button microcopy.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spacing & Radii Visualizer -->
+    <section class="ps-component-section">
+      <div class="ps-section-meta">
+        <h3 class="ps-section-title" style="font-size:1.5rem; margin-bottom:4px;">Radii & Shadow Elevations</h3>
+        <p class="ps-section-description">Curated roundness and soft layered shadows for modern tactile interfaces.</p>
+      </div>
+      <div class="ps-preview-grid-3">
+        <div class="ps-card" style="box-shadow:var(--shadow-sm); border-radius:var(--radius-md);">
+          <span class="ps-badge ps-badge--neutral">--radius-md (10px)</span>
+          <h4 style="margin:8px 0;">Base Elevation (--shadow-sm)</h4>
+          <p style="font-size:var(--font-size-xs); margin:0;">Used on subtle cards and default inputs.</p>
+        </div>
+
+        <div class="ps-card" style="box-shadow:var(--shadow-lg); border-radius:var(--radius-lg);">
+          <span class="ps-badge ps-badge--brand">--radius-lg (16px)</span>
+          <h4 style="margin:8px 0;">Hover Lift (--shadow-lg)</h4>
+          <p style="font-size:var(--font-size-xs); margin:0;">Interactive cards and dropdown popovers.</p>
+        </div>
+
+        <div class="ps-card" style="box-shadow:var(--shadow-2xl); border-radius:var(--radius-xl);">
+          <span class="ps-badge ps-badge--mint">--radius-xl (20px)</span>
+          <h4 style="margin:8px 0;">Modal Dialog (--shadow-2xl)</h4>
+          <p style="font-size:var(--font-size-xs); margin:0;">Floating dialogs and high-priority modals.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Reusable Components Controller Script -->
+  <script src="js/components.js"></script>
+
+</body>
+</html>
