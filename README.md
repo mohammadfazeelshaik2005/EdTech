@@ -1,126 +1,87 @@
-# PathSync AI — Permanent Visual Design System
+# PathSync AI – Personalized Opportunity Discovery Platform
 
-Welcome to the **PathSync AI** project.
+## 📌 About the Project
 
-This repository establishes the **permanent visual design system** for the entire PathSync AI platform, codified directly from the reference standard in [`/design/reference/pathsync-design-reference.png`](design/reference/pathsync-design-reference.png).
+PathSync AI is a student-focused web platform designed to help students discover relevant career and academic opportunities from different sources in one place.
 
----
+Students often struggle to find scholarships, internships, hackathons, research opportunities, competitions, and certifications because information is scattered across multiple websites. PathSync AI simplifies this process by connecting student profiles with relevant opportunities and providing guidance on the skills required to pursue them.
 
-## 🎨 Visual Identity & Design Language
+## ⚙️ How the Website Works
 
-- **Primary Brand Color:** Deep Teal / Emerald (`#0A6C58`, hover `#085444`, dark `#06392F`)
-- **Text Palette:** Dark navy/charcoal (`#0F172A`) for bold headings; muted slate (`#475569`) for high-readability body copy.
-- **Backgrounds:** Pure white (`#FFFFFF`) canvas, alternating with crisp light neutral (`#F8FAFC`) to create natural visual rhythm.
-- **Accents:** Soft green/mint (`#EBF7F3`, `#10B981`) for pill badges, metric highlights, and verification states.
-- **Typography:** Modern `Inter` sans-serif hierarchy with tight letter tracking on headings.
-- **UI Treatment:** Generous whitespace, 16px-24px rounded card surfaces, subtle borders (`#E2E8F0`), soft layered shadows, and tactile pill buttons.
+### 1. Home Page
+The home page introduces PathSync AI, explains its purpose, and allows users to access the platform through registration or login.
 
----
+### 2. User Registration and Login
+Students can create an account and log in to access personalized features. Authentication allows the platform to associate each student's profile and saved information with their account.
 
-## 📁 Repository Structure
+### 3. Student Profile Management
+After logging in, students can create and update their profiles with information such as:
+- Academic qualifications and performance
+- Technical skills and competencies
+- Interests and career goals
+- Resume details
 
-```
-PathSync/
-├── client/                               # Frontend Application (React 19 + Vite + Tailwind CSS)
-│   ├── index.html                        # Application HTML entry point
-│   ├── package.json                      # Frontend dependencies & scripts
-│   ├── vite.config.ts                    # Vite config with /api proxy to http://localhost:5000
-│   ├── tsconfig.json                     # Client TypeScript configuration
-│   └── src/
-│       ├── components/                   # UI & feature components (Assessment, Chatbot, etc.)
-│       ├── context/                      # AuthContext and state providers
-│       ├── data/                         # Mock dataset fallbacks
-│       ├── layouts/                      # Public, Auth, and Dashboard layouts
-│       ├── pages/                        # 16 full product pages
-│       ├── services/                     # Frontend API clients (Supabase, Gemini, etc.)
-│       ├── styles/                       # Design tokens and styling
-│       ├── App.tsx                       # React Router and main routes
-│       └── main.tsx                      # DOM root mount
-│
-├── server/                               # Backend Application (Node.js + Express + TypeScript)
-│   ├── package.json                      # Backend dependencies (Express, @google/genai, pg, etc.)
-│   ├── tsconfig.json                     # Server TypeScript configuration
-│   ├── src/
-│   │   ├── index.ts                      # Express API server entry point (Port 5000)
-│   │   ├── routes/                       # Express route modules (/api/gemini, /api/pipeline, /api/opportunities)
-│   │   ├── services/                     # Gemini SDK client, scraping pipeline, verification
-│   │   ├── lib/                          # Asia/Kolkata deadline and audit utilities
-│   │   └── types/                        # Backend data collection & ingestion types
-│   └── scripts/                          # Autonomous server tasks (seed-supabase.ts, scheduled refresh)
-│
-├── database/                             # Standalone PostgreSQL Docker & SQL schemas
-├── supabase/                             # Production Supabase schemas, migrations & functions
-├── design/                               # Design system spec, tokens.json, reference image
-├── css/                                  # Canonical design system stylesheets (tokens, components)
-├── js/                                   # Component interactive behaviors
-├── AGENTS.md                             # Permanent Design System Guidelines
-├── package.json                          # Monorepo workspaces coordinator (runs client + server)
-└── README.md                             # Project documentation
-```
+This information helps the platform understand each student's background and preferences.
 
----
+### 4. Personalized Opportunity Discovery
+PathSync AI brings different categories of opportunities together in one platform:
 
-## 🧩 The 16 Canonical Reusable Components
+- Scholarships
+- Internships
+- Hackathons
+- Research opportunities
+- Competitions
+- Certifications
 
-Every future page of PathSync AI must reuse these components:
+The platform uses student profile information and opportunity requirements to identify relevant opportunities. Students can explore available opportunities, review eligibility criteria, and access the original application website through the relevant application link.
 
-1. **Button** (`.ps-btn`): Primary, Secondary, Outline, Ghost, Dark, Light, Pill, Sizes (`sm`, `md`, `lg`), Loading state.
-2. **Input** (`.ps-input`, `.ps-input-group`): Text, Search with icon, Select, Textarea, Error states, Focus rings.
-3. **Card** (`.ps-card`): Standard, Interactive Hover (`.ps-card--interactive`), Deep Forest Spotlight (`.ps-card--forest`).
-4. **Badge** (`.ps-badge`): Pill badges with variants (Brand, Mint, Neutral, Warning, Danger, Info) and dot indicators.
-5. **Modal** (`dialog.ps-modal-dialog`): Modern HTML5 `<dialog closedby="any">` with backdrop blur and accessible dismissal.
-6. **Avatar** (`.ps-avatar`, `.ps-avatar-group`): Sizes `xs`–`xl`, status indicators (online, busy, away), initials fallbacks, and learner stacks.
-7. **Dropdown** (`.ps-dropdown`): Accessible dropdown menus with icons, dividers, and active selections.
-8. **Navbar** (`.ps-navbar`): Sticky 72px glassmorphic navigation bar with brand icon, navigation links, and rounded CTA.
-9. **Sidebar** (`.ps-sidebar`): Modern dashboard navigation with grouped items, icons, active pills, badges, and user profile chip.
-10. **PageHeader** (`.ps-page-header`): Breadcrumbs trail, page title, subtitle, and action controls.
-11. **SectionHeader** (`.ps-section-header`): Eyebrow tag (`• OUR PROGRAMS`), bold H2 title, subtitle, and right-aligned link.
-12. **StatCard** (`.ps-stat-card`): Metric values, labels, trend badges (`+14%`), soft teal icon containers, in Light and Dark variants.
-13. **LoadingState** (`.ps-skeleton`, `.ps-spinner`): Shimmer skeleton loaders for text, cards, avatars, and CSS ring spinners.
-14. **EmptyState** (`.ps-empty-state`): Clean centered container with icon circle, friendly title, description, and primary CTA.
-15. **ErrorState** (`.ps-error-state`): Non-disruptive soft crimson card with alert icon, error message, and Retry / Support buttons.
-16. **OpportunityCard** (`.ps-opportunity-card`): Academic fellowship and internship cards with match score pills, metadata pills, and apply buttons.
+### 5. Eligibility Analysis
+The platform compares student profile information with opportunity eligibility requirements to help students understand whether they meet the stated criteria.
 
----
+Opportunities can be presented with eligibility information so students can make more informed application decisions.
 
-## 🚀 How to Run & Preview
+### 6. Skill Gap Analysis
+The platform can identify skills required by an opportunity and compare them with the student's existing skills. This helps students understand which technical or professional skills they may need to improve.
 
-Run both the Client and Server concurrently from the root directory:
+### 7. Learning and Course Recommendations
+Based on identified skill gaps, the platform can suggest relevant learning resources, courses, and certifications to help students develop the skills needed for future opportunities.
 
-```bash
-# Start both Backend (Port 5000) and Frontend (Port 3000) simultaneously:
-npm run dev
+### 8. Placement Readiness
+The placement-readiness module is intended to help students assess their preparation, identify areas for improvement, and understand their next learning steps.
 
-# Or run individually:
-npm run dev:client    # Vite frontend dev server (http://localhost:3000)
-npm run dev:server    # Express backend API server (http://localhost:5000)
-```
+### 9. Saved Opportunities and Progress
+Students can keep track of opportunities they are interested in and revisit relevant information as they plan their academic and career development.
 
-The frontend at `http://localhost:3000` automatically proxies all `/api/*` network requests to the backend server running at `http://localhost:5000`.
+## 🏗️ Technology Stack
 
----
+- **Frontend:** React.js, HTML, CSS, JavaScript, Tailwind CSS
+- **Backend:** Node.js and Express.js
+- **Database:** PostgreSQL
+- **AI Integration:** Google Gemini, where implemented
+- **Database and Backend Services:** Supabase-related services, where configured
+- **Recommendation Approach:** Content-based techniques and student-profile/opportunity matching
 
-## 🗄️ PostgreSQL Database Setup
+## 🎯 Key Features
 
-PathSync AI is engineered with a production PostgreSQL architecture. You have two options to run the database:
+- Unified discovery of academic and career opportunities
+- Student profile management
+- Personalized opportunity recommendations
+- Opportunity eligibility guidance
+- Skill gap identification
+- Learning resource recommendations
+- Placement-readiness support
+- Direct links to original opportunity websites
 
-### Option A: Supabase Hosted PostgreSQL (Recommended)
-1. Create a free project at [supabase.com](https://supabase.com).
-2. Go to the **SQL Editor** in the Supabase Dashboard.
-3. Run the schema: [`supabase/schema.sql`](supabase/schema.sql).
-4. Run the seed data: [`supabase/seed.sql`](supabase/seed.sql).
-5. Copy your **Project URL** and **anon public key** from *Project Settings > API* into `.env`:
-   ```bash
-   VITE_SUPABASE_URL=https://your-project.supabase.co
-   VITE_SUPABASE_ANON_KEY=your-anon-key-here
-   ```
+## 🚀 Future Enhancements
 
-### Option B: Local Standalone PostgreSQL (Docker)
-1. Start the containerized PostgreSQL 16 database and pgAdmin:
-   ```powershell
-   npm run db:up
-   # or: docker compose up -d
-   ```
-2. The database initializes automatically with all tables and seeds from [`database/standalone-postgres.sql`](database/standalone-postgres.sql).
-3. Access pgAdmin at `http://localhost:5050` (Login: `admin@pathsync.ai` / `admin`).
+- Learning Passport with evidence-backed skill milestones
+- Explore Learning Paths connecting skills, opportunities, and potential career roles
+- Improved opportunity verification and deadline validation
+- More personalized recommendations based on student progress
+- Enhanced analytics for tracking learning and career preparation
 
+## 🌟 Project Vision
+
+PathSync AI aims to transform opportunity searching into a structured growth journey by helping students discover opportunities, identify the skills they need, and plan their next steps toward their career goals.
+
+**Discover your opportunities. Earn your skills. Explore your future.**
